@@ -6,9 +6,9 @@ struct student //making student structure
 {
     char name[50];
     int class;
-    int science;
-    int maths;
-    int computer;
+    int science;    //variables to 
+    int maths;      //store marks of
+    int computer;   //corresponging subject
     float average;
     char grade;
 };
@@ -66,7 +66,7 @@ int legitMarkChecker(){
 
 
 int main(void){
-    int maxstud,class;
+    int maxstud,class,i=0;
     float avgmark;
     char maxstudstr[sizeof(int)],classstr[sizeof(int)];
     printf("Enter the no of students:");
@@ -78,7 +78,7 @@ int main(void){
     class=atoi(classstr);
 
     /*Taking input from the user */
-        for(int i=0;i<maxstud;i++)
+    while(i<maxstud)
     {
         printf("\n\n");
         printf("-----STUDENT NO:%d-----\n",i+1);
@@ -96,12 +96,13 @@ int main(void){
         avgmark=((float)(stud[i].computer+stud[i].maths+stud[i].science)/3);
         stud[i].average=avgmark;
         stud[i].grade=grading(avgmark);
+        i++;
     }
-
+    i=0; //for printing
 
     /*Printing the details of the students*/
     printf("\n\n---------STUDENT DETAILS---------\n\n");
-    for(int i=0;i<maxstud;i++)
+    while(i<maxstud)
     {
         printf("NAME:%s\n",stud[i].name);
         printf("CLASS:%d\n",stud[i].class);
@@ -109,6 +110,7 @@ int main(void){
         printf("\nYour Average:%0.2f",stud[i].average);
         printf("\nYour Grade:%c",stud[i].grade);
         printf("\n\n\n");
+        i++;
     }
 }
 
